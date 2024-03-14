@@ -29,5 +29,6 @@ jobs:
           cp src/main/docker/Dockerfile ./target/
           docker build --tag ghcr.io/diwiatschool/backend:latest ./target
           #docker build --tag ghcr.io/{{ github.actor }}/backend:latest ./target
-          docker push ghcr.io/{{ github.actor }}/backend:latest
+          docker push ghcr.io/diwiatschool/backend:latest
+          #docker push ghcr.io/{{ github.actor }}/backend:latest
         
