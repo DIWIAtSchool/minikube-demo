@@ -35,6 +35,6 @@ jobs:
           #docker build --tag ghcr.io/${{ github.actor }}/backend:latest ./target
           echo "I am ${{ github.actor }}."
           docker push ghcr.io/diwiatschool/backend:latest
-          #docker push ghcr.io/{{ github.actor }}/backend:latest
+          #docker push ghcr.io/${{ steps.string.outputs.lowercase }}/backend:latest
           echo ${{ steps.string.outputs.lowercase }}
         
