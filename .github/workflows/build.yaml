@@ -3,6 +3,9 @@ run-name: ${{ github.actor }} is testing out GitHub Actions
 on: [ push ]
 jobs:
   build_executable:
+    permissions:
+      packages: write
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
@@ -24,7 +27,7 @@ jobs:
           mvn -B -DskipTests package
           ls -lh target
           cp src/main/docker/Dockerfile ./target/
-          #docker build --tag ghcr.io/diwiatschool/backend:latest ./target
-          docker build --tag ghcr.io/{{ github.actor }}/backend:latest ./target
+          docker build --tag ghcr.io/diwiatschool/backend:latest ./target
+          #docker build --tag ghcr.io/{{ github.actor }}/backend:latest ./target
           docker push ghcr.io/{{ github.actor }}/backend:latest
         
